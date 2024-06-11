@@ -42,10 +42,10 @@ url = "https://business.medfordchamber.com/directory/FindStartsWith?term=%23%21"
 response = requests.get(url, timeout=10)
 
 # Check if the request was successful
-# the "response" object has a bunch of cool stuff available including the server's returned status codes
-# in this case we are checking for a 200
-# which means that the server was happy with the request and returned something other that an error
-# if it had been an error the script stop and print a message (see the last print statement)
+# The "response" object has a bunch of cool stuff available including the server's returned status codes.
+# In this case, we are checking for a 200 status code,
+# which means that the server was happy with the request and returned something other than an error.
+# If it had been an error, the script would stop and print a message (see the last print statement).
 if response.status_code == 200:
     # Parse the HTML content using BeautifulSoup
     soup = BeautifulSoup(response.text, "html.parser")
@@ -62,9 +62,9 @@ if response.status_code == 200:
 
         # Iterate over each card found in the HTML content
         for card in cards:
-            # Initialize a list to hold card details for writing to the CSV
-            # using a list ensures structured data and is required by csvwriter.writerow
-            # remember this list is reinitialized for every card
+            # Initialize a list to hold card details for writing to the CSV;
+            # using a list ensures structured data and is required by csvwriter.writerow.
+            # Remember this list is reinitialized for every card.
             card_details = []
 
             # Extract and append the name (text inside the first h5 element)
